@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <div class="registro-section">
+   <form [(formGroup)]="registroData" #registroForm="ngForm" id="registro-form">
+     <ion-list>
+
+       <ion-item>
+          <ion-input formControlName="registroMail" type="text" placeholder="Email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input formControlName="registroPass" type="password" placeholder="Password"></ion-input>
+        </ion-item>
+
+      </ion-list>
+    </form>
+
+<button ion-button block (click)='register()' form="registro-form" id="registro-form">Registro</button>
+ </div>
+
+</ion-content>

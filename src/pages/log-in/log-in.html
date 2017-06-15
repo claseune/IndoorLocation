@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>LogIn</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="login-section">
+    <div class="logo">
+      <img src="assets/images/icon1.png">
+    </div>
+
+    <form [(formGroup)]="data"  #loginForm="ngForm" id="login-form">
+      <ion-list inset>
+        <ion-item>
+          <ion-label>Username</ion-label>
+          <ion-input formControlName="username" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+    <button ion-button block (click)="login()" form="login-form" id="login-form">Login</button>
+    <button ion-button block (click)="register()"> Crear Cuenta</button>
+  </div>
+</ion-content>
