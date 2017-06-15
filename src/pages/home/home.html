@@ -1,16 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      home
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div *ngFor="let record of record | async">
-  {{record.name}}
+  <div class=Home-section>
+<form [(formGroup)]="exampleFormData"  #homeForm="ngForm" id="home-form">
+  <ion-item>
+    <ion-label fixed>Nombre Completo</ion-label>
+    <ion-input formControlName="name" type="text" value=""></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Genero</ion-label>
+    <ion-select formControlName="gender">
+      <ion-option value="f">Female</ion-option>
+      <ion-option value="m">Male</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Comida Favorita</ion-label>
+    <ion-select formControlName="meal">
+      <ion-option value="z">Pizza</ion-option>
+      <ion-option value="P">Hot-Dog</ion-option>
+      <ion-option value="h">Hamburguesa</ion-option>
+    </ion-select>
+  </ion-item>
+</form>
+  <button ion-button block (click)='save()' form="exampleFormData" id="home-form">HOME</button>
+
   </div>
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  
 </ion-content>
