@@ -8,7 +8,7 @@
 
 <ion-content padding>
   <div class=Home-section>
-<form [(formGroup)]="exampleFormData"  #homeForm="ngForm" id="home-form">
+<form [(formGroup)]="exampleFormData"  #homeForm="ngForm" id="homeForm">
   <ion-item>
     <ion-label fixed>Nombre Completo</ion-label>
     <ion-input formControlName="name" type="text" value=""></ion-input>
@@ -28,9 +28,20 @@
       <ion-option value="h">Hamburguesa</ion-option>
     </ion-select>
   </ion-item>
-</form>
-  <button ion-button block (click)='save()' form="exampleFormData" id="home-form">HOME</button>
 
+  <button ion-button block (click)="save()" form="exampleFormData" id="homeForm">Guardar</button>
+</form>
+
+<ion-list>
+    <button ion-item *ngFor=" let record of records | async">
+      <ion-avatar item-start>
+        <img src="assets/images/icon2.png">
+      </ion-avatar>
+      <h2>{{record.name}}</h2>
+      <h3>{{record.gender}}</h3>
+      <p>{{record.meal}}</p>
+    </button>
+  </ion-list>
   </div>
   
 </ion-content>

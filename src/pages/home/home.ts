@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import * as firebase from 'firebase';
 
-@IonicPage()
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -21,7 +21,7 @@ export class HomePage {
       this.exampleFormData = this.FormBuilder.group({
         name: ['',Validators.required],
         gender: ['',Validators.required],
-        color: ['',Validators.required]
+        meal: ['',Validators.required]
       })
 
   }
