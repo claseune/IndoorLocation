@@ -12,11 +12,11 @@ import * as firebase from 'firebase';
 export class HomePage {
 
   info: any;
-  record: FirebaseListObservable<any>;
+  records: FirebaseListObservable<any>;
   private exampleFormData: FormGroup;
 
   constructor(public navCtrl: NavController, db: AngularFireDatabase, public FormBuilder: FormBuilder) {
-      this.record = db.list('/usuarios')
+      this.records = db.list('/usuarios');
 
       this.exampleFormData = this.FormBuilder.group({
         name: ['',Validators.required],
@@ -28,14 +28,14 @@ export class HomePage {
 
 save(){
   if(this.exampleFormData.valid){
-    this.record.push(this.exampleFormData.value)
+    this.records.push(this.exampleFormData.value)
   }else{
     console.error('verifique su informacion')
   }
 }
 
   ionViewDidLoad() {
-    console.log(this.record)
+    console.log(this.records)
 
     this.info = "nada";
     firebase.auth().onAuthStateChanged(user => {

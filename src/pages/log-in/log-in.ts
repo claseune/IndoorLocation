@@ -5,6 +5,7 @@ import * as firebase from 'firebase';
 
 import { HomePage } from '../home/home';
 import { RegistroPage } from '../registro/registro';
+import { RegistroFacePage } from '../registro-face/registro-face';
 
 //@IonicPage()
 @Component({
@@ -48,6 +49,11 @@ login() {
   }
   register() {
     this.modalCtrl.create(RegistroPage).present();
+  }
+
+  RegFacebook()
+  {
+    this.navCtrl.setRoot(RegistroFacePage);
   }
 
   ionViewDidLoad() {
