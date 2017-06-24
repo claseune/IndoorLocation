@@ -36,5 +36,4 @@ signOut(){
   ionViewDidLoad() {
     //console.log('ionViewDidLoad RegistroFacePage');
   }
-
 }
