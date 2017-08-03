@@ -4,6 +4,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import * as firebase from 'firebase';
 
 import { HomePage } from '../home/home';
+import { InicioPage } from '../inicio/inicio';
 import { RegistroPage } from '../registro/registro';
 import { RegistroFacePage } from '../registro-face/registro-face';
 
@@ -40,7 +41,7 @@ login() {
         }
       })
       console.log(response);
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.push(InicioPage);
     })
     .catch((error) => {
       this.showToast(error.message, 3000);
@@ -53,7 +54,7 @@ login() {
 
   RegFacebook()
   {
-    this.navCtrl.setRoot(RegistroFacePage);
+    this.navCtrl.push(RegistroFacePage);
   }
 
   ionViewDidLoad() {

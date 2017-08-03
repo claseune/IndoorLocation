@@ -3,12 +3,20 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { BatteryStatus } from '@ionic-native/battery-status';
+import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LogInPage } from '../pages/log-in/log-in';
 import { RegistroPage } from '../pages/registro/registro';
 import { RegistroFacePage } from '../pages/registro-face/registro-face';
+import { InicioPage } from '../pages/inicio/inicio';
+import { FindLocationPage } from '../pages/find-location/find-location';
+import { ContactosPage } from '../pages/contactos/contactos';
+import { PerfilPage } from '../pages/perfil/perfil';
+
 import { LogInProvider } from '../providers/log-in/log-in';
 
 import * as firebase from 'firebase';
@@ -35,6 +43,10 @@ firebase.initializeApp(config)
     LogInPage,
     RegistroPage,
     RegistroFacePage,
+    InicioPage,
+    FindLocationPage,
+    ContactosPage,
+    PerfilPage
   ],
   imports: [
     BrowserModule,
@@ -49,11 +61,17 @@ firebase.initializeApp(config)
     HomePage,
     LogInPage,
     RegistroPage,
-    RegistroFacePage
+    RegistroFacePage,
+    InicioPage,
+    FindLocationPage,
+    ContactosPage,
+    PerfilPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LogInProvider,
     AuthServiceProvider
