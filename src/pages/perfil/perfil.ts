@@ -1,20 +1,39 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, ModalController, IonicPage, NavController, NavParams, ToastController  } from 'ionic-angular';
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import * as firebase from 'firebase';
+import { EditPage } from '../edit/edit';
 
-/**
- * Generated class for the PerfilPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-perfil',
   templateUrl: 'perfil.html',
 })
 export class PerfilPage {
+info: any;
+  records: FirebaseListObservable<any>;
+  private listasFormData: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase, public FormBuilder: FormBuilder, public toastCtrl: ToastController, public alertCtrl: AlertController) {
+    this.records = db.list('/perfiles');
+
+      this.listasFormData = this.FormBuilder.group({
+        nombre: ['',Validators.required],
+        apellidoP: ['',Validators.required],
+        ApellidoM: ['',Validators.required],
+        Carrera: ['',Validators.required]
+      })
+  }
+
+ 
+
+  edit(key){
+    let info = {
+      key: key
+    }
+    this.modalCtrl.create(EditPage, info).present();
   }
 
   ionViewDidLoad() {

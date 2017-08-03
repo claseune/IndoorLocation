@@ -16,6 +16,7 @@ import { InicioPage } from '../pages/inicio/inicio';
 import { FindLocationPage } from '../pages/find-location/find-location';
 import { ContactosPage } from '../pages/contactos/contactos';
 import { PerfilPage } from '../pages/perfil/perfil';
+import { EditPage } from '../pages/edit/edit';
 
 import { LogInProvider } from '../providers/log-in/log-in';
 
@@ -46,7 +47,8 @@ firebase.initializeApp(config)
     InicioPage,
     FindLocationPage,
     ContactosPage,
-    PerfilPage
+    PerfilPage,
+    EditPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,8 @@ firebase.initializeApp(config)
     InicioPage,
     FindLocationPage,
     ContactosPage,
-    PerfilPage
+    PerfilPage,
+    EditPage
   ],
   providers: [
     StatusBar,
